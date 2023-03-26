@@ -6,9 +6,7 @@
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
 
 
-<h2>Video Demonstration</h2>
 
-- ### [YouTube: How To Install osTicket with Prerequisites](https://www.youtube.com)
 
 <h2>Environments and Technologies Used</h2>
 
@@ -22,34 +20,185 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
+- installation Files
+https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
+
+<h2>Task Overview</h2>
+
+- Create Virtual Machine in Azure
+- Install/Enable IIS in Windows With CGI
+- Download and install PHP Manager for IIS
+- Download and install the Rewrite Module
+- Create the directory C:\PHP
+- Download PHP 7.3.8
+- Download and install VC_redist.x86.exe.
+- Download and install MySQL 5.5.62
+
+
+ 
 
 <h2>Installation Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/mRuEvwG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+First step is creating our Windows 10 virtual Machine(VM) on Azure. This can be done on Azure by opening Virtual Machines->Create->Windows 10 with 2-4 Virtual CPUs /create username and password->Review->Create.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/38QWohS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>Open Remote Desktop Connection then connect to your virtual machine by typing the VM's ip address into Remote Desktop Connection. Use the credentials you created for the virtual machine to login
+</p>
+<br />
+
+
+<p>
+<img src="https://i.imgur.com/NY8HmDl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In the VM, right-click the windows menu->Run->Control->
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/voWlYYp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Programs->
 </p>
 <br />
+
+<p>
+<img src="https://i.imgur.com/7ZnhzzF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Turn Windows features on or off-> Internet Information Services->World Wide Web->Application Development features->CGI
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/7Iqm9Uy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Activating CGI allows us to host a webpage on our own network. Test this by typing 127.0.0.1 into google.com in your VM. The webpage that loads up should look like the screenshot above.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/L1SM68G.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next, download/install PHP Manager & Rewrite Module  Here is the [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/fdZPh2o.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/4aaIh6P.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Create a folder on the C drive and name it PHP. Then dowload and extract PHP 7.3.8 and unzip the contents into the PHP folder we just created [here](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6).
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/Cojbwm8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+                            
+  Download and install VC redist.x86.exe
+<img src="https://i.imgur.com/cWDdaTP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ Download and install My SQL 5.5.62 Typical->
+ Setup Launch Configuration Wizard (after install) -> Standard Configuration -> Password1
+  
+<img src="https://i.imgur.com/3DPgXGH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>.
+<img src="https://i.imgur.com/xPtMirk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/VpjW1NF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Open IIS as admin. Open PHP Manager->Register new PHP ENTER: C:->PHP->php-cgi.exe. Now restart the server. 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/omgXxeO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Download/install osTicket using this [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6). Open osticket->upload. Extract the upload file into C:->Inetpub->wwwroot. Now rename the "upload" folder to "osTicket". Now, return to IIS and restart the server. 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/d1twbJt.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+In IIS->sites->default Web Services->osTicket->*80 to open osTicket in your internet browser.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/A8HkBeS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/pj4rDsi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Now we need to enable some extensions so that our osTicket can operate. In IIS open sites->osTicket->PHP Manager->Enable or disable extensions, enable extensions: php_opcache.dil, phpImap.dll, phpintl.dll. Refresh the osTicket tab in your internet explorer. 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/VoqugcF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next rename the file "Ostsampleconfig" to "Ost-config". This file can be found in Browse->wwwroot->include->Ostsampleconfig.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/vphiBeH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Now, right-click "ostconfig"->open properties->security->advanced->disable inheritance->remove all permissions. Then select "EVERYONE" and apply.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/VEReR8k.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Download/install heidi from this [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6). Next right-click->create new->database->and name it osTicket.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/TUQA3J8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Open osTicket in your internet browser and fill out the installation details and install.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/BuKVpjg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next delete the folder named "setup" this folder is in osTicket->Setup. 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/j90dBfY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next, right-click "ostconfig"->properties->security->advanced->disable inheritance->modify->read only. Then select "EVERYONE" and apply. 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/lfVp5fP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next open this link http://localhost/osTicket/scp/login.php and log in to osTicket with the credentials you created when filling out the osTicket installation page.
+</p>
+<br />
+Congrulations!!! You have now installed osTicket on your VM.
